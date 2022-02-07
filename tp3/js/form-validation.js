@@ -1,36 +1,32 @@
 window.onload = function () {
   document.querySelector("form").addEventListener("submit", function (event) {
     event.preventDefault();
-    
-    if(validation())
-    {
 
+    if (validation()) {
       document.querySelector(".modal-title").textContent =
-      "Bienvenue " + document.querySelector("#fname").value + "!";
-      
-    document.querySelector(
-      "#map"
-    ).src = `https://maps.googleapis.com/maps/api/staticmap?markers=${
-      document.querySelector("#Adresse").value
-    }&zoom=7&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg`;
-    document.querySelector("#lien").href = `http://maps.google.com/maps?q=${
-      document.querySelector("#Adresse").value }`;
-      var myModal1 = new bootstrap.Modal(document.getElementById('myModal1'));
+        "Bienvenue " + document.querySelector("#fname").value + "!";
+
+      document.querySelector(
+        "#map"
+      ).src = `https://maps.googleapis.com/maps/api/staticmap?markers=${
+        document.querySelector("#Adresse").value
+      }&zoom=7&size=400x300&scale=2&key=AIzaSyAkmvI9DazzG9p77IShsz_Di7-5Qn7zkcg`;
+      document.querySelector("#lien").href = `http://maps.google.com/maps?q=${
+        document.querySelector("#Adresse").value
+      }`;
+      var myModal1 = new bootstrap.Modal(document.getElementById("myModal1"));
       myModal1.show();
-      
-  }
-  
-    } );
-   // const dateNaissance = new Date(document.getElementById("date").value);
-    //var month = dateNaissance.getUTCMonth() + 1;
-    //var day = dateNaissance.getUTCDate();
-    //var year = dateNaissance.getUTCFullYear();
-   // newdate = day + "/" + month + "/" + year;
-    //document.querySelector(".modal-body").textContent =
-    //  "Vous etes née en " + newdate + "  et vous habitez ici: ";
-    //myModal1.show();
-    
-  };
+    }
+  });
+  // const dateNaissance = new Date(document.getElementById("date").value);
+  //var month = dateNaissance.getUTCMonth() + 1;
+  //var day = dateNaissance.getUTCDate();
+  //var year = dateNaissance.getUTCFullYear();
+  // newdate = day + "/" + month + "/" + year;
+  //document.querySelector(".modal-body").textContent =
+  //  "Vous etes née en " + newdate + "  et vous habitez ici: ";
+  //myModal1.show();
+};
 function validation() {
   var fname = document.getElementById("fname");
   atpos = document.getElementById("fname").value.length;
@@ -44,7 +40,6 @@ function validation() {
   let dateNow = Date.now();
   var myModal = new bootstrap.Modal(document.getElementById("myModal"));
   var myModal1 = new bootstrap.Modal(document.getElementById("myModal1"));
-  
 
   document.getElementById("error").style.display = "none";
   document.getElementById("resultat").style.display = "none";
@@ -106,7 +101,6 @@ function validation() {
   }
 
   if (document.getElementById("error").innerHTML == "") {
- 
     document.getElementById("resultat").style.display = "block";
     alert("BIENVENU " + document.getElementById("fname").value);
     return true;
